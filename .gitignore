@@ -161,3 +161,12 @@ cython_debug/
 
 # pem
 *.pem
+
+# data
+data/
+
+# models
+models/
+
+# mlflow
+mlruns/
