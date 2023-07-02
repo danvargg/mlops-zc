@@ -92,7 +92,7 @@ train = xgb.DMatrix(X_train, label=y_train)
 valid = xgb.DMatrix(X_val, label=y_val)
 
 
-def objective(params):
+def objective(params: dict):
     with mlflow.start_run():
         mlflow.set_tag("model", "xgboost")
         mlflow.log_params(params)
@@ -128,7 +128,7 @@ best_result = fmin(
     trials=Trials()
 )
 
-mlflow.sklearn.autolog()
+# mlflow.sklearn.autolog()
 
 for model_class in (RandomForestRegressor, GradientBoostingRegressor, ExtraTreesRegressor, LinearSVR):
     with mlflow.start_run():
